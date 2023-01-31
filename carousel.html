@@ -33,6 +33,111 @@
             </custom-carousel-item>
         </custom-carousel>
     </div>
+    <div style="width: 50%; margin: 0 auto;">
+        <style>
+            .slider-wrapper {
+                margin: 1rem;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .slides-container {
+                height: 100%;
+                width: 100%;
+                display: flex;
+                overflow: scroll;
+                scroll-behavior: smooth;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            .slide-arrow {
+                position: absolute;
+                display: flex;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                height: 4rem;
+                background-color: white;
+                border: none;
+                width: 2rem;
+                font-size: 3rem;
+                padding: 0;
+                cursor: pointer;
+                opacity: 0.5;
+                transition: opacity 100ms;
+            }
+
+            .slide-arrow:hover,
+            .slide-arrow:focus {
+                opacity: 1;
+            }
+
+            #slide-arrow-prev {
+                left: 0;
+                padding-left: 0.25rem;
+                border-radius: 0 2rem 2rem 0;
+            }
+
+            #slide-arrow-next {
+                right: 0;
+                padding-left: 0.75rem;
+                border-radius: 2rem 0 0 2rem;
+            }
+
+            .slide {
+                width: 100%;
+                height: 100%;
+                flex: 1 0 100%;
+            }
+
+            .slides-container {
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+
+            .slides-container::-webkit-scrollbar {
+                width: 0;
+                height: 0;
+            }
+        </style>
+        <h3>Title Test</h3>
+        <section class="slider-wrapper">
+            <button class="slide-arrow" id="slide-arrow-prev">&#8249;</button>
+            <button class="slide-arrow" id="slide-arrow-next">&#8250;</button>
+            <ul class="slides-container" id="slides-container">
+                <li class="slide">
+                    Content 1
+                </li>
+                <li class="slide">
+                    Content 2
+                </li>
+                <li class="slide">
+                    Content 3
+                </li>
+            </ul>
+        </section>
+        <script>
+            const allSliders = document.querySelectorAll('.slider-wrapper')
+            allSliders.forEach(slider => {
+                const slidesContainer = slider.querySelector("#slides-container");
+                const slide = slider.querySelector(".slide");
+                const prevButton = slider.querySelector("#slide-arrow-prev");
+                const nextButton = slider.querySelector("#slide-arrow-next");
+
+                nextButton.addEventListener("click", () => {
+                    const slideWidth = slide.clientWidth;
+                    slidesContainer.scrollLeft += slideWidth;
+                });
+
+                prevButton.addEventListener("click", () => {
+                    const slideWidth = slide.clientWidth;
+                    slidesContainer.scrollLeft -= slideWidth;
+                });
+            })
+        </script>
+    </div>
 </body>
 
 </html>
