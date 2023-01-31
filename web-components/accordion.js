@@ -109,8 +109,24 @@ function addCustomAccordion() {
             icon?.addEventListener("click", () => {
                 icon.classList.toggle("icon-rotate")
                 this.classList.toggle("open")
+
+                // const isOpen = this.getAttribute('open') === 'true'
+                // this.setAttribute('open', !isOpen)
             })
         }
+
+        // static get observedAttributes() {
+        //     return ['open'];
+        // }
+
+        // attributeChangedCallback(name, oldValue, newValue) {
+        //     console.log(name, oldValue, newValue)
+        //     if (name === 'open') {
+        //         const icon = this.querySelector('.icon')
+        //         icon.classList.toggle("icon-rotate")
+        //         this.classList.toggle("open")
+        //     }
+        // }
 
     }
 
