@@ -104,6 +104,12 @@ function addCustomAccordion() {
             if (!this.querySelector('.icon')) {
                 this.innerHTML = itemTemplate(title, number, content)
             }
+
+            const icon = this.querySelector('.icon')
+            icon?.addEventListener("click", () => {
+                icon.classList.toggle("icon-rotate")
+                this.classList.toggle("open")
+            })
         }
 
     }
@@ -114,14 +120,6 @@ function addCustomAccordion() {
 
             const content = this.innerHTML
             this.innerHTML = accordionTemplate(content)
-
-            const iconUpDown = this.querySelectorAll(".icon");
-            iconUpDown.forEach(icon => {
-                icon.addEventListener("click", e => {
-                    icon.classList.toggle("icon-rotate")
-                    icon.parentElement.classList.toggle("open");
-                })
-            })
         }
 
     }
