@@ -93,7 +93,9 @@ function addCustomCarousel() {
         constructor() {
             super()
             const content = this.innerHTML
-            this.innerHTML = itemTemplate(content)
+            if (!this.querySelector('.slide')) {
+                this.innerHTML = itemTemplate(content)
+            }
         }
 
     }
